@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 "#MyBankDemo" 
+=======
+"# MyBankDemo" 
+>>>>>>> fd7ac9a (Update README)
 ## License
 This project is licensed under the [MIT License](./LICENSE).
 
@@ -32,7 +36,7 @@ This project uses the browser's **LocalStorage** to store:
 ## Installation
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/Irfan-alyy/MyBankClone
+   git clone https://github.com/Irfan-alyy/MyBankDemo
 
 
 All data is stored locally in the user's browser, ensuring privacy and offline availability.
