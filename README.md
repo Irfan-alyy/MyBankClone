@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 "#MyBankDemo" 
-=======
-"# MyBankDemo" 
->>>>>>> fd7ac9a (Update README)
 ## License
 This project is licensed under the [MIT License](./LICENSE).
 
