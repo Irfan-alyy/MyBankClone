@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="shortcut icon" href="../content/bank-svgrepo-com.svg" type="image/x-icon">
+   
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+
+<body>
+    <body class="bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 min-h-screen flex items-center justify-center text-white">
+        <div class="w-4/5 max-w-md bg-white text-gray-800 shadow-lg rounded-2xl p-6 my-6 flex flex-col">
+            <h1 class="text-2xl font-bold text-center mb-4">Edit Profile</h1>
+            <form action="/updateProfile" method="POST" class="w-full flex flex-col gap-4">
+                <div class="flex flex-col">
+                    <label for="username" class="font-medium text-lg">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="e.g., Irfan" required class="p-2 border rounded-lg focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div class="flex flex-col">
+                    <label for="email" class="font-medium text-lg">Old Password</label>
+                    <input type="password" id="oldPassword" name="oldPassword" placeholder="Enter your old password" required class="p-2 border rounded-lg focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div class="flex flex-col">
+                    <label for="password" class="font-medium text-lg">New Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter a strong password" required class="p-2 border rounded-lg focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div class="flex flex-col">
+                    <label for="confirm-password" class="font-medium text-lg">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required class="p-2 border rounded-lg focus:ring-2 focus:ring-pink-500">
+                </div>
+                <p id="pswrdCheck" class="text-gray-600 text-sm text-center">Password must be at least 8 characters long and contain a mix of letters and numbers.</p>
+                <button id="saveBtn" class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 transition w-full">Save Changes</button>
+            </form>
+        </div>
+
+    <script>
+
+        
+        const data=JSON.parse(localStorage.getItem("data"));
+        const index = localStorage.getItem("index");
+        window.addEventListener("load",()=>{
+        if(data[index][0].session.logedIn){
+            //alert("loggedIn");
+        
+        }
+        else{
+            console.log("no session");
+            window.location.href="../login.html";
+        }
+        })
+        const form = document.querySelector('form');
+
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+        });
+
+        document.querySelector("#saveBtn").addEventListener("click",()=>{
+            
+            const username = document.querySelector('#username').value;
+            const oldPassword = document.querySelector('#oldPassword').value;
+            const password = document.querySelector('#password').value;
+            const confirmPassword = document.querySelector('#confirm-password').value;
+            const pswrdCheck = document.querySelector('#pswrdCheck');
+
+            const nameRegex = /^[a-zA-Z\s]+$/;
+            const PasswordRegex = /(?=.*[0-9])(?=.*[$&@])/;
+           // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!nameRegex.test(username)) {
+                alert("Name must contain only letters and spaces");
+                pswrdCheck.textContent = "Name must contain only letters and spaces";
+                return;
+            }
+            // if (!emailRegex.test(email)) {
+            //     alert("Please enter a valid email address");
+            //     pswrdCheck.textContent = "Please enter a valid email address";
+            //     return;
+            // }
+
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters");
+                pswrdCheck.textContent = "Password must be at least 8 characters";
+                return;
+            }
+
+            if (password != confirmPassword) {
+                alert("Your Password should be same!");
+                pswrdCheck.textContent = "Your Password should be same!";
+                return;
+
+            }
+
+            if (!PasswordRegex.test(confirmPassword)) {
+                alert("Paswword must contain $/&/@ and numbers");
+                pswrdCheck.textContent = "Paswword must contain $/&/@ and numbers";
+                return;
+            }
+
+            if(data[index][0].password!=oldPassword){
+                alert("Old password wrong")
+                pswrdCheck.textContent = "You should enter old password before changing it!";
+                return;
+            }
+
+            if (data[index][0].username==username) {
+                alert('Username already exists');
+                return;
+            }
+           
+            data[index][0].username=username;
+            data[index][0].password=confirmPassword;
+            
+           
+            localStorage.setItem("data",JSON.stringify(data))
+            alert('Profile updated successfully');
+            window.location.href = '../home.html';
+        });
+
+    </script>
+</body>
+
+</html>

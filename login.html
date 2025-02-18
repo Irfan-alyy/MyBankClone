@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="/content/bank-svgrepo-com.svg" type="image/x-icon">
+
+</head>
+<body class="bg-gradient-to-br from-purple-500 via-pink-500 to-red-500">
+
+<form action="#" id="form" class="flex flex-col justify-center items-center h-screen">
+
+        <div id="login" class="loginForm flex flex-col w-full max-w-sm  rounded bg-white  p-5   justify-center shadow-xl shadow-black"> 
+            <h1 class="mx-auto text-2xl font-semibold">Login In</h1>
+            <label for="email" class="mt-5 text-xl">Enter Your Email*</label>
+            <input type="email" name="email" id="email" required class="loginEmail border rounded" placeholder="Enter your email ">
+            
+            <label for="Password" class="mt-5 text-xl">Enter Password*</label>
+            <input type="password" name="email" id="password" required class="loginPassword border rounded block" placeholder="Enter Password">
+            <button id="loginBtn" type="submit" class="cursor-pointer border mx-auto text-xl mt-8 w-1/2 rounded hover:bg-slate-300 ">Log In</button>
+            <a href="#" id="frgtBtn" class="text-center font-thin text-sm underline hover:text-blue-500 hover:no-underline mt-2">Forgot Password?</a>
+            <a href="#" id="regBtn" class="text-center font-thin text-sm underline hover:text-blue-500 hover:no-underline mt-6">Register account</a>
+        </div>
+
+</form>
+
+
+    
+
+
+<script src="/scripts/loginScript.js" type="module"></script>
+</body>
+</html>

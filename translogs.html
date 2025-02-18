@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="/content/bank-svgrepo-com.svg" type="image/x-icon">
+
+    <style>
+       #td{ 
+            max-width:20px;
+            height: 5px;
+            white-space: nowrap;
+            overflow-x:scroll;
+            overflow-y: hidden;
+    }
+    select{
+            background-color: rgb(246, 51, 154);
+            outline: none;
+            border: 1px solid white;
+        }
+        .success{
+            
+            background-color:green;
+            padding: 3px 5px;
+            border-radius: 3px;
+            color: white;
+        }
+        .failed{
+            background-color:red;
+            padding: 3px 5px;
+            border-radius: 3px;
+            color: white;
+        }
+        td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body class="h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-red-500">
+    <!-- <div  id="menubar" class="mr-auto ml-5 z-10">
+        <a href="#" id="menuIcon"><img src="content/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a>
+        <a href="#" id="closeIcon"><img src="content/close_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a>
+    </div> -->
+
+<aside id="sideBar" class="fixed top-0 left-0 h-screen bg-black/20 z-9">
+    <div class="flex flex-col h-full  justify-center gap-10 p-5">
+    <button id="home" class=" bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Back to Home</button>
+    <button id="transaction" class=" bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Make A Transaction</button>
+    <button id="loginHistory" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Login History </button>
+    
+    </div>
+</aside>
+<div class="h-screen flex justify-center items-center">
+    <div class="w-2/3 bg-white text-gray-800 shadow-lg rounded-2xl p-6 my-6 mx-auto overflow-x-auto">
+        <h1 class="text-2xl font-bold text-center mb-4">Transaction History</h1>
+        <div class="w-full flex  gap-2 justify-end pr-30">
+            <input type="checkbox" id="idBox" checked>TransId 
+            <input type="checkbox" id="amtBox" checked>Amount
+            <input type="checkbox" id="timeBox" checked>Time
+            <input type="checkbox" id="receiverBox" checked>Receiver
+            <input type="checkbox" id="statusBox" checked>Status</div>
+        <table class="w-3/4 m-auto text-left border-collapse" id="table">
+            
+            <thead class="bg-pink-500 text-white">
+                <tr>
+                    <th class="c1 p-3">Transaction ID</th>
+                    <th class="c2 p-3">Amount</th>
+                    <th class="c3 p-3">Time<select name="filter" id="sortSelect">
+                        <option value="asc">Ascending</option>
+                        <option value="dsc">Descending</option>
+                    </select></th>
+                    <th class="c4 p-3">Receiver</th>
+                    <th class="c5 p-3">status<select name="filter" id="filter">
+                        <option value="all">All</option>
+                        <option value="success">Success</option>
+                        <option value="failed">Fail</option>
+            
+                    </select></th>
+
+                </tr>
+            </thead>
+            <tr>
+            <td class="c1">        
+                <input type="text" id="searchId" class=" border" placeholder="search by id">
+            </td>
+            <td class="c2">
+                <input type="text" id="searchAmount" class=" border" placeholder="search by amount">
+            </td>
+            <td class="c3">
+                <input type="text" id="searchTime" class=" border" placeholder="search by time">
+            </td>
+            <td class="c4">
+                <input type="text" id="searchRec" class=" border" placeholder="search by receiver">
+            </td>
+            <td></td>
+        </tr>
+            <tbody id="logsBody" class="divide-y divide-gray-300">
+            </tbody>
+        </table>
+        <div class="w-full flex items-end justify-end my-5">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition" type="button" value="CSV Download " onclick="tocsv()">Download logs</button>
+
+       </div>
+    </div>
+
+</div>
+    
+
+
+
+<script type="module" src="/scripts/transLogs.js"></script>
+<script src="/utilities/csv.min.js"></script>
+<script src="/scripts/toCsvTransLogs.js"></script>
+<script></script>
+</body>
+</html>

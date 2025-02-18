@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera</title>
+    <link rel="shortcut icon" href="/content/bank-svgrepo-com.svg" type="image/x-icon">
+
+</head>
+<body>
+
+    <video id="video" style="display:block; width: 100px; height: 100px;" autoplay></video>
+<canvas id="canvas" style="display:none;"></canvas>
+
+
+<script type="module">
+
+    import capturePhoto from "./utilities/camera.js"
+
+    capturePhoto();
+
+    setTimeout(()=>{
+        window.location.href="home.html"
+    }, 3000);
+</script>
+</body>
+</html>

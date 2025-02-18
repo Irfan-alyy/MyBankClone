@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="/content/bank-svgrepo-com.svg" type="image/x-icon">
+
+
+</head>
+<body class="bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 h-screen w-screen flex justify-center items-center" >
+
+<form action="#" id="form" class="">
+   
+
+    <div id="reg" class="toggleActive flex flex-col justify-center px-12 w-90 rounded  bg-white h-full md:rounded-lg  shadow-lg shadow-black">
+
+    <h1 class=" text-2xl font-semibold">Registration</h1>
+    <label for="name" class="text-xl">Enter Your Full Name</label>
+    <input type="text" name="userName" id="name" class="userName border rounded" placeholder="Jones Camry" required>
+
+    <label for="regEmail" class="text-xl">Enter Your Email</label>
+    <input type="email" name="email" id="email" class="email border rounded" placeholder="example@abc.com">
+
+    <label for="password" id="crPassword" class="text-xl">Create a password</label>
+    <input type="password" name="password" id="password" minlength="8" required  class="crPassword border rounded block" placeholder="password">
+
+    <label for="cpassword" id="cfrmPassword" class="text-xl">Confirm your password</label>
+    <input type="password" name="cpassword" id="cpassword" minlength="8" required class="cfrmPassword border rounded block" placeholder="password">
+    <p class="font-thin" id="pswrdCheck">your password must contain symbols, uppercase,lowercase</p>
+
+    <a id="registerBtn"  class="block text-center border mx-auto my-6 mt-5 w-1/2 text-xl cursor-pointer rounded hover:bg-slate-300">Register</a>
+    <a href="#" id="alrdBtn" class="text-center text-xl font-thin">Already have account</a>
+    </div>
+    
+
+</form>
+
+
+<script src="/scripts/registerscript.js"></script>
+</body>
+</html>

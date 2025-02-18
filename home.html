@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="/content/bank-svgrepo-com.svg" type="image/x-icon">
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        #menubar{
+           a{
+            position: fixed;
+            left: 20px;
+            top: 10px;
+            background: #4944443c;
+            padding: 7px 7px;
+            border-radius: 5px;
+
+           }
+        }
+
+       
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 min-h-screen flex flex-col items-center text-white">
+    <div  id="menubar" class="mr-auto ml-5 z-10">
+        <a href="#" id="menuIcon"><img src="content/menu_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a>
+        <a href="#" id="closeIcon"><img src="content/close_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" alt=""></a>
+    </div>
+
+<aside id="sideBar" class="fixed left-0 h-screen bg-black/20 z-9">
+    <div class="flex flex-col h-full p-10 justify-center gap-10 ">
+    <button onclick="makeTransaction()" class=" bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Make A Transaction</button>
+    <button onclick="transactionHistory()" class=" bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Transaction History</button>
+    <button onclick="loginHistory()" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Login History </button>
+    <button id="logOut" class=" bg-white text-gray-800 px-4 py-2 rounded-lg shadow-md opacity-75 hover:opacity-100 transition">Log Out</button>
+    
+    </div>
+</aside>
+    <div class=" relative w-3/5 bg-white text-gray-800 shadow-lg rounded-2xl p-6 my-auto md:ml-20 md:m-auto-auto py-20 flex flex-col md:grid md:grid-cols-2 items-center gap-5">
+        
+            <img alt="Profile" id="profileImg" class="w-32 h-32 rounded-full border-4 border-pink-500 object-cover">
+         
+            <div class="flex flex-col gap-2 text-lg my-5">
+            <p><strong>User Name:</strong> <span id="profileName"></span></p>
+            <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+            <p><strong>Account No:</strong> <span id="accountNo"></span></p>
+            <p class="text-xl font-semibold text-green-600">Balance: $<span id="balance"></span></p>
+        </div>
+        <button onclick="changeImage()" class="md:absolute left-7 bottom-2 md:ml-auto bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Edit Picture</button>
+
+        <button onclick="editProfile()" class="md:absolute right-5 bottom-2 md:ml-auto bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Edit Profile</button>
+    </div>
+   
+    
+    <script src="/scripts/homeScript.js"></script>
+   
+</body>
+</html>

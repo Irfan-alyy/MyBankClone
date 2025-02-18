@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot page</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="/content/bank-svgrepo-com.svg" type="image/x-icon">
+
+
+</head>
+<body class="bg-gradient-to-br from-purple-500 via-pink-500 to-red-500">
+
+    <form action="#" id="form" class=" flex flex-col justify-center items-center h-screen">
+
+        <div id="forget" class="flex flex-col w-full max-w-sm  rounded bg-white  p-5   justify-center shadow-xl shadow-black"> 
+            <h1 class="mx-auto text-2xl font-semibold">Forgot Password</h1>
+            <label for="name" class="mt-5 text-xl">Enter Your Name</label>
+            <input type="text" name="name" maxlength="15" id="name" required class=" border rounded" placeholder="Enter your name">
+            
+            <label for="email" class="mt-5 text-xl">Enter Your Email</label>
+            <input type="email" name="email" id="email" maxlength="30" required class=" border rounded" placeholder="Enter your email ">
+            
+            <label for="password" class="mt-5 text-xl">Enter new Password</label>
+            <input type="password" name="password" id="password" required minlength="8" maxlength="10" class="loginPassword border rounded block" placeholder="Enter Password">
+            <label for="cpassword" class="mt-5 text-xl">Confirm your Password</label>
+            <input type="password" name="password" id="cpassword" required minlength="8" maxlength="10" class="loginPassword border rounded block" placeholder="Confirm your Password">
+            
+            <button id="resetBtn" type="button" class="border mx-auto text-xl mt-8 w-1/2 rounded hover:bg-slate-300 ">Reset Password</button>
+            <a href="#" id="btlogin" class="text-center font-thin text-sm underline hover:text-blue-500 hover:no-underline mt-6">Back to login</a>
+        </div>
+    
+    </form>
+    
+    <script src="/scripts/forgot.js"></script>
+</body>
+</html>

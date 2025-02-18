@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="/content/bank-svgrepo-com.svg" type="image/x-icon">
+
+    <style>
+       #td{ 
+            max-width:20px;
+            height: 5px;
+            white-space: nowrap;
+            overflow-x:scroll;
+            overflow-y: hidden;
+    }
+        #image{
+            width: 30px;
+            height: auto;
+            margin-left: 20px;
+        }
+
+        select{
+            background-color: rgb(246, 51, 154);
+            outline: none;
+            border: 1px solid white;
+
+        }
+        .success{
+            
+            background-color:green;
+            padding: 3px 5px;
+            border-radius: 3px;
+            color: white;
+        }
+        .fail{
+            background-color:red;
+            padding: 3px 5px;
+            border-radius: 3px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-500 via-pink-500 to-red-500">
+
+    <aside id="sideBar" class="fixed top-0 left-0 h-screen bg-black/20 z-9">
+        <div class="flex flex-col h-full justify-center gap-10 p-5">
+        <button id="home" class=" bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Back to Home</button>
+        <button id="transaction" class=" bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Make A Transaction</button>
+        <button id="transLogs" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition">Transaction History </button>
+        
+        </div>
+    </aside>
+ <div class="h-screen flex justify-center items-center">
+     <div class="w-2/3 bg-white text-gray-800 shadow-lg rounded-2xl p-6 my-6 mx-auto overflow-x-auto">
+         <h1 class="text-2xl font-bold text-center mb-4">Logs History</h1>
+         <div class="w-full flex  gap-2 justify-end pr-30">
+             <input type="checkbox" id="idBox" checked>LoginId 
+             <input type="checkbox" id="timeBox" checked>Time
+             <input type="checkbox" id="statusBox" checked>Status
+             <input type="checkbox" id="deviceBox" checked>Device 
+             <input type="checkbox" id="pictureBox" checked>Picture</div>
+             <table class="w-3/4 m-auto text-left border-collapse" id="table">
+                 <thead class="bg-pink-500 text-white">
+                     
+                     <th class="p-3 c1">Login ID</th>
+                    <th class="p-3 c2">Time
+                        <select name="filter" id="sortSelect">
+                            <option value="asc">Ascending</option>
+                            <option value="dsc">Descending</option>
+                        </select>
+
+                    </th>
+                    <th class="p-3 c3">Status<select name="filter" id="filter">
+                        <option value="all">All</option>
+                        <option value="success">success</option>
+                        <option value="fail">fail</option>
+            
+                    </select></th>
+                    <th class="p-3 c4">Device</th>
+                    <th class="p-3 c5">Picture</th>
+            
+            </thead>
+            <tr>
+                <td class="c1">        
+                    <input type="text" id="searchId" class="c1 border" placeholder="search by name">
+                </td>
+                <td class="c2">
+                    <input type="text" id="searchTime" class="c2 border" placeholder="search by time">
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tbody id="logsBody" class="divide-y divide-gray-300">
+                
+            </tbody>
+        </table>
+        <div class="w-full flex items-end justify-end my-5">
+             <button class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition" type="button" value="CSV Download " onclick="tocsv()">Download logs</button>
+
+        </div>
+
+    </div>
+    <div class=" hidden absolute w-100 bg-pink-500 h-100 rounded-xl flex-col py-5 px-5 gap-5" id="imageBox">
+
+        <a href="#" class="flex justify-end"><img src="content/close_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" alt="close" id="closeImageBox"></a>
+        <img id="showImage" alt="Picture" class=" object-cover flex items-center justify-center" >
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition w-fit m-auto" type="button" value="Image Download " id="imageDownload">Download Image</button>
+    </div>
+    
+ </div>  
+
+<script type="module" src="/scripts/loginHistory.js"></script>
+<script src="/utilities/csv.min.js"></script>
+<script src="/scripts/csvData.js"></script>
+
+    
+</script>
+</body>
+</html>
