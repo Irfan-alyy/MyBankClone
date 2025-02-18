@@ -1,11 +1,11 @@
-"# SecureBankDemo" 
+"#MyBankDemo" 
 ## License
 This project is licensed under the [MIT License](./LICENSE).
 
 # SecureBankDemo
 
 ## Description
-SecureBankDemo is a comprehensive demo banking system built using HTML, CSS (Tailwind), and JavaScript. It includes various features such as multi-user login, password recovery, profile management, transaction handling, and more.
+MyBankDemo is a comprehensive demo banking system built using HTML, CSS (Tailwind), and JavaScript. It includes various features such as multi-user login, password recovery, profile management, transaction handling, and more.
 
 ## Features
 - **Multi-User Login:** Users can register and log in individually.
